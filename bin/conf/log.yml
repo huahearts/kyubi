@@ -16,3 +16,13 @@ logs:
 system:
     port: 9000
     value: 15
+    int_vec:
+        - 10
+        - 30
+    int_list: [20, 40, 50] 
+    int_set: [40,70,80]
+    int_map: 
+      k: 30
+      k2: 20
+      k3: 10
+
