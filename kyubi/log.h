@@ -11,6 +11,7 @@
 #include <vector>
 #include <tuple>
 #include <stdarg.h>
+#include "util.h"
 #include "singleton.h"
 #define KYUBI_LOG_LEVEL(logger,level) \
 	if(logger->getLevel() <= level) \
@@ -23,6 +24,20 @@
 #define KYUBI_LOG_WARN(logger) KYUBI_LOG_LEVEL(logger,kyubi::LogLevel::WARN)
 #define KYUBI_LOG_ERROR(logger) KYUBI_LOG_LEVEL(logger,kyubi::LogLevel::ERROR)
 #define KYUBI_LOG_FATAL(logger) KYUBI_LOG_LEVEL(logger,kyubi::LogLevel::FATAL)
+
+#define KYUBI_LOG_FMT_LEVEL(logger,level,fmt, ...) \
+	if(logger->getLevel() <= level) \
+		kyubi::LogEventWrap(kyubi::LoEvent::ptr(new kyubi::LogEvent(logger,level \
+			__FILE__,__LINE__,0,kyubi::GetThreadId(),\
+			kyubi::GetFiberId(),time(0)))).getEvent()->fotmat(fmt,__VA_ARGS__)
+
+#define KYUBI_LOG_FMT_DEBUG(logger,fmt,...) KYUBI_LOG_FMT_LEVEL(logger,kyubi::LogLevel::DEBUG,fmt,__VA_ARGS__)
+#define KYUBI_LOG_FMT_INFO(logger,fmt,...) KYUBI_LOG_FMT_LEVEL(logger,kyubi::LogLevel::INFO,fmt,__VA_ARGS__)
+#define KYUBI_LOG_FMT_WARN(logger,fmt,...) KYUBI_LOG_FMT_LEVEL(logger,kyubi::LogLevel::WARN,fmt,__VA_ARGS__)
+#define KYUBI_LOG_FMT_ERROR(logger,fmt,...) KYUBI_LOG_FMT_LEVEL(logger,kyubi::LogLevel::ERROR,fmt,__VA_ARGS__)
+#define KYUBI_LOG_FMT_FATAL(logger,fmt,...) KYUBI_LOG_FMT_LEVEL(logger,kyubi::LogLevel::FATAL,fmt,__VA_ARGS__)
+
+#define KYUBI_LOG_ROOT() kyubi::LogMgr::GetInstance()->getRoot()
 namespace kyubi{
 //日志事件
 class Logger;
@@ -179,6 +194,7 @@ public:
 	LogManager();
 	Logger::ptr getLogger(const std::string& name);
 	void init();
+	Logger::ptr getRoot() const { return m_root; }
 private:
 	std::map<std::string,Logger::ptr> m_loggers;
 	Logger::ptr m_root;

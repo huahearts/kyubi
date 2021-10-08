@@ -114,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_config
+
+# Build rule for target.
+test_config: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_config
+.PHONY : test_config
+
+# fast build rule for target.
+test_config/fast:
+	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/build
+.PHONY : test_config/fast
+
+#=============================================================================
 # Target rules for targets named test
 
 # Build rule for target.
@@ -138,6 +151,33 @@ kyubi: cmake_check_build_system
 kyubi/fast:
 	$(MAKE) -f CMakeFiles/kyubi.dir/build.make CMakeFiles/kyubi.dir/build
 .PHONY : kyubi/fast
+
+kyubi/config.o: kyubi/config.cc.o
+
+.PHONY : kyubi/config.o
+
+# target to build an object file
+kyubi/config.cc.o:
+	$(MAKE) -f CMakeFiles/kyubi.dir/build.make CMakeFiles/kyubi.dir/kyubi/config.cc.o
+.PHONY : kyubi/config.cc.o
+
+kyubi/config.i: kyubi/config.cc.i
+
+.PHONY : kyubi/config.i
+
+# target to preprocess a source file
+kyubi/config.cc.i:
+	$(MAKE) -f CMakeFiles/kyubi.dir/build.make CMakeFiles/kyubi.dir/kyubi/config.cc.i
+.PHONY : kyubi/config.cc.i
+
+kyubi/config.s: kyubi/config.cc.s
+
+.PHONY : kyubi/config.s
+
+# target to generate assembly for a file
+kyubi/config.cc.s:
+	$(MAKE) -f CMakeFiles/kyubi.dir/build.make CMakeFiles/kyubi.dir/kyubi/config.cc.s
+.PHONY : kyubi/config.cc.s
 
 kyubi/log.o: kyubi/log.cc.o
 
@@ -220,6 +260,33 @@ tests/test.cc.s:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.s
 .PHONY : tests/test.cc.s
 
+tests/test_config.o: tests/test_config.cc.o
+
+.PHONY : tests/test_config.o
+
+# target to build an object file
+tests/test_config.cc.o:
+	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.o
+.PHONY : tests/test_config.cc.o
+
+tests/test_config.i: tests/test_config.cc.i
+
+.PHONY : tests/test_config.i
+
+# target to preprocess a source file
+tests/test_config.cc.i:
+	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.i
+.PHONY : tests/test_config.cc.i
+
+tests/test_config.s: tests/test_config.cc.s
+
+.PHONY : tests/test_config.s
+
+# target to generate assembly for a file
+tests/test_config.cc.s:
+	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.s
+.PHONY : tests/test_config.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -228,8 +295,12 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... test_config"
 	@echo "... test"
 	@echo "... kyubi"
+	@echo "... kyubi/config.o"
+	@echo "... kyubi/config.i"
+	@echo "... kyubi/config.s"
 	@echo "... kyubi/log.o"
 	@echo "... kyubi/log.i"
 	@echo "... kyubi/log.s"
@@ -239,6 +310,9 @@ help:
 	@echo "... tests/test.o"
 	@echo "... tests/test.i"
 	@echo "... tests/test.s"
+	@echo "... tests/test_config.o"
+	@echo "... tests/test_config.i"
+	@echo "... tests/test_config.s"
 .PHONY : help
 
 

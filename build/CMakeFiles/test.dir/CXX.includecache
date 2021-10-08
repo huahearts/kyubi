@@ -29,6 +29,8 @@ tuple
 -
 stdarg.h
 -
+util.h
+/root/workspace/kyubi/kyubi/util.h
 singleton.h
 /root/workspace/kyubi/kyubi/singleton.h
 

@@ -1,1 +1,1 @@
-/usr/bin/c++ -fPIC  -rdynamic -O0 -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function  -shared -Wl,-soname,libkyubi.so -o ../lib/libkyubi.so CMakeFiles/kyubi.dir/kyubi/log.cc.o CMakeFiles/kyubi.dir/kyubi/util.cc.o 
+/usr/bin/c++ -fPIC  -rdynamic -O0 -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function  -shared -Wl,-soname,libkyubi.so -o ../lib/libkyubi.so CMakeFiles/kyubi.dir/kyubi/log.cc.o CMakeFiles/kyubi.dir/kyubi/util.cc.o CMakeFiles/kyubi.dir/kyubi/config.cc.o  -L/apps/kyubi/lib 

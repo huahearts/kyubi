@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/workspace/kyubi/tests/test.cc" "/root/workspace/kyubi/build/CMakeFiles/test.dir/tests/test.cc.o"
+  "/root/workspace/kyubi/tests/test_config.cc" "/root/workspace/kyubi/build/CMakeFiles/test_config.dir/tests/test_config.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

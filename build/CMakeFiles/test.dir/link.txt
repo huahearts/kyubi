@@ -1,1 +1,1 @@
-/usr/bin/c++   -rdynamic -O0 -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function  -rdynamic CMakeFiles/test.dir/tests/test.cc.o  -o ../bin/test -Wl,-rpath,/root/workspace/kyubi/lib ../lib/libkyubi.so 
+/usr/bin/c++   -rdynamic -O0 -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function  -rdynamic CMakeFiles/test.dir/tests/test.cc.o  -o ../bin/test  -L/apps/kyubi/lib -Wl,-rpath,/apps/kyubi/lib:/root/workspace/kyubi/lib ../lib/libkyubi.so /usr/local/lib64/libyaml-cpp.a 
