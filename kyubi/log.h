@@ -38,9 +38,11 @@
 #define KYUBI_LOG_FMT_FATAL(logger,fmt,...) KYUBI_LOG_FMT_LEVEL(logger,kyubi::LogLevel::FATAL,fmt,__VA_ARGS__)
 
 #define KYUBI_LOG_ROOT() kyubi::LogMgr::GetInstance()->getRoot()
+#define KYUBI_LOG_NAME(name) kyubi::LogMgr::GetInstance()->getLogger(name)
 namespace kyubi{
 //日志事件
 class Logger;
+class LogManager;
 //日志级别
 class LogLevel {
 public:
@@ -143,6 +145,7 @@ protected:
 
 class Logger : public std::enable_shared_from_this<Logger>
 {
+friend class LogManager;
 public:
 	typedef std::shared_ptr<Logger> ptr;
 
@@ -168,6 +171,7 @@ private:
 	LogLevel::Level m_level;    //日志级别
 	std::list<LogAppender::ptr> m_appenders;
 	LogFormatter::ptr m_formatter;
+	Logger::ptr m_root;
 };
 
 class StdoutAppender : public LogAppender {
@@ -197,7 +201,7 @@ public:
 	Logger::ptr getRoot() const { return m_root; }
 private:
 	std::map<std::string,Logger::ptr> m_loggers;
-	Logger::ptr m_root;
+	Logger::ptr m_root; 
 };
 
 typedef kyubi::Singleton<LogManager> LogMgr;

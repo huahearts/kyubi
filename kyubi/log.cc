@@ -1,4 +1,5 @@
 #include "log.h"
+#include "config.h"
 #include <functional>
 #include <time.h>
 #include <string.h>
@@ -74,9 +75,9 @@ void Logger::log(LogLevel::Level level,LogEvent::ptr event)
             for(auto& i : m_appenders) {
                 i->log(self,level,event);
             }
-        } /*else if(m_root) {
+        } else if(m_root) {
             m_root->log(level,event);
-        }*/
+        }
        
     }
 }
@@ -191,7 +192,7 @@ class NameFormatItem : public LogFormatter::FormatItem{
 public:
     NameFormatItem(const std::string& str = ""){}
     void format(std::ostream& os,Logger::ptr logger, LogLevel::Level level ,LogEvent::ptr event) override {
-        os << logger->getName();
+        os << event->getLogger()->getName();
     }
 };
 
@@ -346,7 +347,7 @@ void LogFormatter::init() {
     if(!nstr.empty()){
         vec.push_back(std::make_tuple(nstr,"",0));
     }
-
+    //%d{%Y-%m-%d %H:%M:%S}%T%t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"
     static std::map<std::string, std::function<FormatItem::ptr(const std::string& str)> > s_format_items = {
 #define XX(str,C)\
     {#str,[](const std::string& fmt) {return FormatItem::ptr(new C(fmt)); }}
@@ -384,16 +385,73 @@ void LogFormatter::init() {
     {
         m_root.reset(new Logger);
         m_root->addAppender(LogAppender::ptr(new StdoutAppender));
+        //init();
     }
-	Logger::ptr LogManager::getLogger(const std::string& name)
+
+    Logger::ptr LogManager::getLogger(const std::string& name)
     {
         auto it = m_loggers.find(name);
-        return it == m_loggers.end() ? m_root : it->second;
+        if(it == m_loggers.end())
+        {
+            return it->second;
+        }
+        Logger::ptr logger(new Logger(name));
+        logger->m_root = m_root;
+        m_loggers[name] = logger;
+        return logger;
     }
+     struct LogAppenderDefine{
+        int type = 0; // 1 file, 2 stdout
+        LogLevel::Level level = LogLevel::UNKNOW;
+        std::string formatter;
+        std::string file;
 
+        bool operator==(const LogAppenderDefine& oth) const {
+            return type == oth.type
+            && level == oth.level
+            && formatter == oth.formatter
+            && file == oth.file;
+        }
+    };
+    struct LogDefine {
+        std::string name;
+        LogLevel::Level level;
+        std::string formatter;
+        std::vector<LogAppenderDefine> appenders;
+        bool operator==(const LogDefine& oth) const {
+            return name == oth.name
+            && level == oth.level
+            && formatter == oth.formatter
+            && appenders == oth.appenders;
+        }
+
+        bool operator<(const LogDefine& oth) const {
+            return name < oth.name;
+        }
+    };
+
+
+    
+#if 0
+	
+    kyubi::ConfigVar<std::set<LogDefine> >::ptr g_log_defines = 
+        kyubi::Config::Lookup("logs",std::set<LogDefine>(),"logs config");
+   
+
+    struct LogIniter {
+        LogIniter() {
+            g_log_defines->addListener(0xF1E231,[](const std::set<LogDefine>& old_value,
+                    const std::set<LogDefine>& new_value){
+            });
+        }
+    };
+    
+    
+
+    static LogIniter __log_init;
 	void LogManager::init()
     {
-
     }
+#endif
 }
 

@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/root/workspace/kyubi/kyubi/config.cc
-config.h
-/root/workspace/kyubi/kyubi/config.h
-
 /root/workspace/kyubi/kyubi/config.h
 memory
 -
@@ -37,6 +33,18 @@ functional
 -
 log.h
 /root/workspace/kyubi/kyubi/log.h
+
+/root/workspace/kyubi/kyubi/log.cc
+log.h
+/root/workspace/kyubi/kyubi/log.h
+config.h
+/root/workspace/kyubi/kyubi/config.h
+functional
+-
+time.h
+-
+string.h
+-
 
 /root/workspace/kyubi/kyubi/log.h
 string

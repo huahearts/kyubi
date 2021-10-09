@@ -25,4 +25,18 @@ system:
       k: 30
       k2: 20
       k3: 10
-
+class:
+    person:
+      name: kyubi
+      age: 31
+      sex: true
+    map:
+      wsw01:
+        name: wsw
+        age: 11
+        sex: true
+      wsw02:
+        name: jyx
+        age : 12
+        sex: false
+      

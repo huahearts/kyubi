@@ -31,6 +31,7 @@ public:
     const std::string& getDescription() const { return m_description; }
     virtual std::string toString() = 0;
     virtual bool fromString(const std::string& val) = 0;
+    virtual std::string getTypeName() const = 0;
 protected:
     std::string m_name;
     std::string m_description;
@@ -233,6 +234,7 @@ template<class T, class FromStr =  LexicalCast<std::string,T>,class ToStr = Lexi
 class ConfigVar : public ConfigVarBase {
 public:
     typedef std::shared_ptr<ConfigVar> ptr;
+    typedef std::function<void(const T& old_value,const T& new_value)> on_change_cb;
     ConfigVar(const std::string& name
             ,const T& default_value
             ,const std::string& description = "")
@@ -245,8 +247,8 @@ public:
             return ToStr()(m_val);
            // return boost::lexical_cast<std::string>(m_val);
         } catch(std::exception& e){
-            /*KYUBI_LOG_ERROR(KYUBI_LOG_ROOT()) << "ConfigVar::toString exception"
-                << e.what() << "convert:" << typeid(m_val).name() << "to string";*/
+            KYUBI_LOG_ERROR(KYUBI_LOG_ROOT()) << "ConfigVar::toString exception"
+                << e.what() << "convert:" << typeid(m_val).name() << "to string";
         }
         return "";
     }
@@ -256,15 +258,42 @@ public:
             // m_val = boost::lexical_cast<T>(val);
             setValue(FromStr()(val));
         } catch ( std::exception& e) {
-            /*KYUBI_LOG_ERROR(KYUBI_LOG_ROOT()) << "ConfigVar::toString exception"
-                << e.what() << "convert : string to" << typeid(m_val).name();*/
+            KYUBI_LOG_ERROR(KYUBI_LOG_ROOT()) << "ConfigVar::toString exception"
+                << e.what() << "convert : string to" << typeid(m_val).name()
+                << "-"<<val;
         }
         return false;
     }
     const T getValue() const { return m_val; }
-    void setValue(const T& v) { m_val = v; }
+    void setValue(const T& v) { 
+        if(v == m_val) 
+            return;
+
+        for(auto& i : m_cbs) {
+            i.second(m_val,v);
+        }
+        m_val = v;
+    }
+    std::string getTypeName() const override { return typeid(T).name(); }
+    void addListener(uint64_t key,on_change_cb cb) {
+        m_cbs[key] = cb;
+    }
+
+    void delLListener(uint64_t key) {
+        m_cbs.erase(key);
+    }
+
+    on_change_cb getListener(uint64_t key) {
+        auto it = m_cbs.find(key);
+        return it != m_cbs.end() ? it->second : nullptr;
+    }
+
+    void clearListener() {
+        m_cbs.clear();
+    }
 private:
     T m_val;
+    std::map<uint64_t,on_change_cb> m_cbs;
 };
 
 class Config{
@@ -273,13 +302,22 @@ public:
     template<class T>
     static typename ConfigVar<T>::ptr Lookup(const std::string& name,
             const T& default_value,const std::string& description = ""){
-                auto tmp = Lookup<T>(name);
-                if(tmp) {
-                    //KYUBI_LOG_INFO(KYUBI_LOG_ROOT()) << "Lookup name=" << name << "exists";
-                    return tmp;
+                auto it = s_datas.find(name);
+                if (it != s_datas.end()) {
+                    auto tmp = std::dynamic_pointer_cast<ConfigVar<T> >(it->second);
+                    if(tmp) {
+                        KYUBI_LOG_INFO(KYUBI_LOG_ROOT()) << "Lookup name=" << name << "exists";
+                        return tmp;
+                    } else {
+                         KYUBI_LOG_INFO(KYUBI_LOG_ROOT()) << "Lookup name=" << name << "exists but type not "
+                            << typeid(T).name() << " real_type=" << it->second->getTypeName()
+                            << " " << it->second->toString();
+                         return nullptr;
+                    }
                 }
+               
             if(name.find_first_not_of("abcdefghikjlmnopqrstuvwxyz._012345678") != std::string::npos){
-                //KYUBI_LOG_ERROR(KYUBI_LOG_ROOT()) << "Lookup name invaild" << name;
+                KYUBI_LOG_ERROR(KYUBI_LOG_ROOT()) << "Lookup name invaild" << name;
                 throw std::invalid_argument(name);
             }
 

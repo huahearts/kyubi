@@ -8,6 +8,7 @@ CMakeFiles/kyubi.dir/kyubi/config.cc.o
  /root/workspace/kyubi/kyubi/singleton.h
  /root/workspace/kyubi/kyubi/util.h
 CMakeFiles/kyubi.dir/kyubi/log.cc.o
+ /root/workspace/kyubi/kyubi/config.h
  /root/workspace/kyubi/kyubi/log.cc
  /root/workspace/kyubi/kyubi/log.h
  /root/workspace/kyubi/kyubi/singleton.h

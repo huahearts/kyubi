@@ -19,9 +19,9 @@ add_library(kyubi SHARED ${LIB_SRC})
 #add_library(sylar_static STATIC ${LIB_SRC})
 #SET_TARGET_PROPERTIES (sylar_STATIC PROPERTIES OUTPUT_NAME "sylar")
 
-add_executable(test tests/test.cc)
-add_dependencies(test kyubi)
-target_link_libraries(test kyubi ${YAMLCPP})
+#add_executable(test tests/test.cc)
+#add_dependencies(test kyubi)
+#target_link_libraries(test kyubi ${YAMLCPP})
 
 add_executable(test_config tests/test_config.cc)
 add_dependencies(test_config kyubi)

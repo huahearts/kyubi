@@ -127,19 +127,6 @@ test_config/fast:
 .PHONY : test_config/fast
 
 #=============================================================================
-# Target rules for targets named test
-
-# Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test
-.PHONY : test
-
-# fast build rule for target.
-test/fast:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
-
-#=============================================================================
 # Target rules for targets named kyubi
 
 # Build rule for target.
@@ -233,33 +220,6 @@ kyubi/util.cc.s:
 	$(MAKE) -f CMakeFiles/kyubi.dir/build.make CMakeFiles/kyubi.dir/kyubi/util.cc.s
 .PHONY : kyubi/util.cc.s
 
-tests/test.o: tests/test.cc.o
-
-.PHONY : tests/test.o
-
-# target to build an object file
-tests/test.cc.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.o
-.PHONY : tests/test.cc.o
-
-tests/test.i: tests/test.cc.i
-
-.PHONY : tests/test.i
-
-# target to preprocess a source file
-tests/test.cc.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.i
-.PHONY : tests/test.cc.i
-
-tests/test.s: tests/test.cc.s
-
-.PHONY : tests/test.s
-
-# target to generate assembly for a file
-tests/test.cc.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.s
-.PHONY : tests/test.cc.s
-
 tests/test_config.o: tests/test_config.cc.o
 
 .PHONY : tests/test_config.o
@@ -296,7 +256,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test_config"
-	@echo "... test"
 	@echo "... kyubi"
 	@echo "... kyubi/config.o"
 	@echo "... kyubi/config.i"
@@ -307,9 +266,6 @@ help:
 	@echo "... kyubi/util.o"
 	@echo "... kyubi/util.i"
 	@echo "... kyubi/util.s"
-	@echo "... tests/test.o"
-	@echo "... tests/test.i"
-	@echo "... tests/test.s"
 	@echo "... tests/test_config.o"
 	@echo "... tests/test_config.i"
 	@echo "... tests/test_config.s"
