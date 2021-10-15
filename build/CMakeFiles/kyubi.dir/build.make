@@ -63,41 +63,41 @@ include CMakeFiles/kyubi.dir/flags.make
 CMakeFiles/kyubi.dir/kyubi/log.cc.o: CMakeFiles/kyubi.dir/flags.make
 CMakeFiles/kyubi.dir/kyubi/log.cc.o: ../kyubi/log.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/kyubi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kyubi.dir/kyubi/log.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kyubi.dir/kyubi/log.cc.o -c /root/workspace/kyubi/kyubi/log.cc
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"kyubi/log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kyubi.dir/kyubi/log.cc.o -c /root/workspace/kyubi/kyubi/log.cc
 
 CMakeFiles/kyubi.dir/kyubi/log.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kyubi.dir/kyubi/log.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/workspace/kyubi/kyubi/log.cc > CMakeFiles/kyubi.dir/kyubi/log.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"kyubi/log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/workspace/kyubi/kyubi/log.cc > CMakeFiles/kyubi.dir/kyubi/log.cc.i
 
 CMakeFiles/kyubi.dir/kyubi/log.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kyubi.dir/kyubi/log.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/kyubi/kyubi/log.cc -o CMakeFiles/kyubi.dir/kyubi/log.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"kyubi/log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/kyubi/kyubi/log.cc -o CMakeFiles/kyubi.dir/kyubi/log.cc.s
 
 CMakeFiles/kyubi.dir/kyubi/util.cc.o: CMakeFiles/kyubi.dir/flags.make
 CMakeFiles/kyubi.dir/kyubi/util.cc.o: ../kyubi/util.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/kyubi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kyubi.dir/kyubi/util.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kyubi.dir/kyubi/util.cc.o -c /root/workspace/kyubi/kyubi/util.cc
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"kyubi/util.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kyubi.dir/kyubi/util.cc.o -c /root/workspace/kyubi/kyubi/util.cc
 
 CMakeFiles/kyubi.dir/kyubi/util.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kyubi.dir/kyubi/util.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/workspace/kyubi/kyubi/util.cc > CMakeFiles/kyubi.dir/kyubi/util.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"kyubi/util.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/workspace/kyubi/kyubi/util.cc > CMakeFiles/kyubi.dir/kyubi/util.cc.i
 
 CMakeFiles/kyubi.dir/kyubi/util.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kyubi.dir/kyubi/util.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/kyubi/kyubi/util.cc -o CMakeFiles/kyubi.dir/kyubi/util.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"kyubi/util.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/kyubi/kyubi/util.cc -o CMakeFiles/kyubi.dir/kyubi/util.cc.s
 
 CMakeFiles/kyubi.dir/kyubi/config.cc.o: CMakeFiles/kyubi.dir/flags.make
 CMakeFiles/kyubi.dir/kyubi/config.cc.o: ../kyubi/config.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/kyubi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kyubi.dir/kyubi/config.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kyubi.dir/kyubi/config.cc.o -c /root/workspace/kyubi/kyubi/config.cc
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"kyubi/config.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kyubi.dir/kyubi/config.cc.o -c /root/workspace/kyubi/kyubi/config.cc
 
 CMakeFiles/kyubi.dir/kyubi/config.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kyubi.dir/kyubi/config.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/workspace/kyubi/kyubi/config.cc > CMakeFiles/kyubi.dir/kyubi/config.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"kyubi/config.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/workspace/kyubi/kyubi/config.cc > CMakeFiles/kyubi.dir/kyubi/config.cc.i
 
 CMakeFiles/kyubi.dir/kyubi/config.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kyubi.dir/kyubi/config.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/kyubi/kyubi/config.cc -o CMakeFiles/kyubi.dir/kyubi/config.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"kyubi/config.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/kyubi/kyubi/config.cc -o CMakeFiles/kyubi.dir/kyubi/config.cc.s
 
 # Object files for target kyubi
 kyubi_OBJECTS = \

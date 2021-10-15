@@ -1,6 +1,7 @@
 #include "kyubi/config.h"
 #include "kyubi/log.h"
 #include <yaml-cpp/yaml.h>
+#include <iostream>
 
 kyubi::ConfigVar<int>::ptr g_int_value_config = 
     kyubi::Config::Lookup("system.port",(int)8080,"ststem port");
@@ -165,8 +166,22 @@ void test_class() {
     //KYUBI_LOG_INFO(KYUBI_LOG_ROOT()) << "after:"<<g_person->getValue().toString() << " - " << g_person->toString();
 }
 
+void test_log() {
+    static kyubi::Logger::ptr system_log = KYUBI_LOG_NAME("system");
+    KYUBI_LOG_INFO(system_log) << "hello system" << std::endl;
+    std::cout << kyubi::LogMgr::GetInstance()->toYamlString() << std::endl;
+    YAML::Node root = YAML::LoadFile("/root/workspace/kyubi/bin/conf/log.yml");
+    kyubi::Config::LoadFromYaml(root);
+    std::cout << kyubi::LogMgr::GetInstance()->toYamlString() << std::endl;
+    std::cout << root << std::endl;
+    system_log->setFormatter("%d - %m%n");
+    KYUBI_LOG_INFO(system_log) << "hello system" << std::endl;
+
+}
+
 int main(int argc,char** argv){
     //test_config();
-    test_class();
+    //test_class();
+    test_log();
     return 0;
 }
