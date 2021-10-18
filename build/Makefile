@@ -114,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_thread
+
+# Build rule for target.
+test_thread: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_thread
+.PHONY : test_thread
+
+# fast build rule for target.
+test_thread/fast:
+	$(MAKE) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/build
+.PHONY : test_thread/fast
+
+#=============================================================================
 # Target rules for targets named test_config
 
 # Build rule for target.
@@ -193,6 +206,33 @@ kyubi/log.cc.s:
 	$(MAKE) -f CMakeFiles/kyubi.dir/build.make CMakeFiles/kyubi.dir/kyubi/log.cc.s
 .PHONY : kyubi/log.cc.s
 
+kyubi/thread.o: kyubi/thread.cc.o
+
+.PHONY : kyubi/thread.o
+
+# target to build an object file
+kyubi/thread.cc.o:
+	$(MAKE) -f CMakeFiles/kyubi.dir/build.make CMakeFiles/kyubi.dir/kyubi/thread.cc.o
+.PHONY : kyubi/thread.cc.o
+
+kyubi/thread.i: kyubi/thread.cc.i
+
+.PHONY : kyubi/thread.i
+
+# target to preprocess a source file
+kyubi/thread.cc.i:
+	$(MAKE) -f CMakeFiles/kyubi.dir/build.make CMakeFiles/kyubi.dir/kyubi/thread.cc.i
+.PHONY : kyubi/thread.cc.i
+
+kyubi/thread.s: kyubi/thread.cc.s
+
+.PHONY : kyubi/thread.s
+
+# target to generate assembly for a file
+kyubi/thread.cc.s:
+	$(MAKE) -f CMakeFiles/kyubi.dir/build.make CMakeFiles/kyubi.dir/kyubi/thread.cc.s
+.PHONY : kyubi/thread.cc.s
+
 kyubi/util.o: kyubi/util.cc.o
 
 .PHONY : kyubi/util.o
@@ -247,6 +287,33 @@ tests/test_config.cc.s:
 	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.s
 .PHONY : tests/test_config.cc.s
 
+tests/test_thread.o: tests/test_thread.cc.o
+
+.PHONY : tests/test_thread.o
+
+# target to build an object file
+tests/test_thread.cc.o:
+	$(MAKE) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/tests/test_thread.cc.o
+.PHONY : tests/test_thread.cc.o
+
+tests/test_thread.i: tests/test_thread.cc.i
+
+.PHONY : tests/test_thread.i
+
+# target to preprocess a source file
+tests/test_thread.cc.i:
+	$(MAKE) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/tests/test_thread.cc.i
+.PHONY : tests/test_thread.cc.i
+
+tests/test_thread.s: tests/test_thread.cc.s
+
+.PHONY : tests/test_thread.s
+
+# target to generate assembly for a file
+tests/test_thread.cc.s:
+	$(MAKE) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/tests/test_thread.cc.s
+.PHONY : tests/test_thread.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -255,6 +322,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... test_thread"
 	@echo "... test_config"
 	@echo "... kyubi"
 	@echo "... kyubi/config.o"
@@ -263,12 +331,18 @@ help:
 	@echo "... kyubi/log.o"
 	@echo "... kyubi/log.i"
 	@echo "... kyubi/log.s"
+	@echo "... kyubi/thread.o"
+	@echo "... kyubi/thread.i"
+	@echo "... kyubi/thread.s"
 	@echo "... kyubi/util.o"
 	@echo "... kyubi/util.i"
 	@echo "... kyubi/util.s"
 	@echo "... tests/test_config.o"
 	@echo "... tests/test_config.i"
 	@echo "... tests/test_config.s"
+	@echo "... tests/test_thread.o"
+	@echo "... tests/test_thread.i"
+	@echo "... tests/test_thread.s"
 .PHONY : help
 
 

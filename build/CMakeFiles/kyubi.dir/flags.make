@@ -14,3 +14,5 @@ CXX_INCLUDES = -I/root/workspace/kyubi/. -I/apps/kyubi/include
 
 # Custom defines: CMakeFiles/kyubi.dir/kyubi/config.cc.o_DEFINES = __FILE__="kyubi/config.cc"
 
+# Custom defines: CMakeFiles/kyubi.dir/kyubi/thread.cc.o_DEFINES = __FILE__="kyubi/thread.cc"
+

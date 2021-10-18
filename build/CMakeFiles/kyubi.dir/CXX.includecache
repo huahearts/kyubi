@@ -6,38 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/root/workspace/kyubi/kyubi/config.cc
-config.h
-/root/workspace/kyubi/kyubi/config.h
-
-/root/workspace/kyubi/kyubi/config.h
-memory
--
-string
--
-sstream
--
-boost/lexical_cast.hpp
--
-yaml-cpp/yaml.h
--
-vector
--
-list
--
-map
--
-set
--
-unordered_map
--
-unordered_set
--
-functional
--
-log.h
-/root/workspace/kyubi/kyubi/log.h
-
 /root/workspace/kyubi/kyubi/log.h
 string
 -
@@ -67,6 +35,28 @@ singleton.h
 /root/workspace/kyubi/kyubi/singleton.h
 
 /root/workspace/kyubi/kyubi/singleton.h
+
+/root/workspace/kyubi/kyubi/thread.cc
+thread.h
+/root/workspace/kyubi/kyubi/thread.h
+log.h
+/root/workspace/kyubi/kyubi/log.h
+util.h
+/root/workspace/kyubi/kyubi/util.h
+
+/root/workspace/kyubi/kyubi/thread.h
+thread
+-
+functional
+-
+string
+-
+memory
+-
+pthread.h
+-
+semaphore.h
+-
 
 /root/workspace/kyubi/kyubi/util.h
 pthread.h

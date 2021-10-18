@@ -13,6 +13,12 @@ CMakeFiles/kyubi.dir/kyubi/log.cc.o: ../kyubi/log.h
 CMakeFiles/kyubi.dir/kyubi/log.cc.o: ../kyubi/singleton.h
 CMakeFiles/kyubi.dir/kyubi/log.cc.o: ../kyubi/util.h
 
+CMakeFiles/kyubi.dir/kyubi/thread.cc.o: ../kyubi/log.h
+CMakeFiles/kyubi.dir/kyubi/thread.cc.o: ../kyubi/singleton.h
+CMakeFiles/kyubi.dir/kyubi/thread.cc.o: ../kyubi/thread.cc
+CMakeFiles/kyubi.dir/kyubi/thread.cc.o: ../kyubi/thread.h
+CMakeFiles/kyubi.dir/kyubi/thread.cc.o: ../kyubi/util.h
+
 CMakeFiles/kyubi.dir/kyubi/util.cc.o: ../kyubi/util.cc
 CMakeFiles/kyubi.dir/kyubi/util.cc.o: ../kyubi/util.h
 
