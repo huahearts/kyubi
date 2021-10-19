@@ -154,7 +154,7 @@ void test_class() {
         KYUBI_LOG_INFO(KYUBI_LOG_ROOT()) << prefix<<": size=" << m.size();\
     }
 
-    g_person->addListener(10,[](const Person& old_val,const Person& new_val){
+    g_person->addListener([](const Person& old_val,const Person& new_val){
          KYUBI_LOG_INFO(KYUBI_LOG_ROOT()) << "old_value = " << old_val.toString()
             << "new_value = " << new_val.toString();
     });

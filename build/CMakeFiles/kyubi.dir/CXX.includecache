@@ -35,6 +35,8 @@ unordered_set
 -
 functional
 -
+thread.h
+/root/workspace/kyubi/kyubi/thread.h
 log.h
 /root/workspace/kyubi/kyubi/log.h
 
@@ -82,14 +84,6 @@ thread.h
 
 /root/workspace/kyubi/kyubi/singleton.h
 
-/root/workspace/kyubi/kyubi/thread.cc
-thread.h
-/root/workspace/kyubi/kyubi/thread.h
-log.h
-/root/workspace/kyubi/kyubi/log.h
-util.h
-/root/workspace/kyubi/kyubi/util.h
-
 /root/workspace/kyubi/kyubi/thread.h
 thread
 -
@@ -102,6 +96,8 @@ memory
 pthread.h
 -
 semaphore.h
+-
+atomic
 -
 
 /root/workspace/kyubi/kyubi/util.h

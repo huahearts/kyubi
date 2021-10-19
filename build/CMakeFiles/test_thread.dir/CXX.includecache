@@ -31,6 +31,8 @@ unordered_set
 -
 functional
 -
+thread.h
+.././kyubi/thread.h
 log.h
 .././kyubi/log.h
 
@@ -90,6 +92,8 @@ memory
 pthread.h
 -
 semaphore.h
+-
+atomic
 -
 
 .././kyubi/util.h

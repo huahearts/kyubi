@@ -211,6 +211,7 @@ public:
 private:
 	std::string m_name;
 	std::ofstream m_filestream;
+	uint64_t m_lastTime;
 };
 
 class LogManager {

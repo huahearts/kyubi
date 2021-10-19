@@ -47,7 +47,13 @@ int main(int argc, char** argv) {
         thrs[i]->join();
     }
 
+
+    
     KYUBI_LOG_INFO(g_logger) << "thread test end";
     KYUBI_LOG_INFO(g_logger) << "count=" << count;
+
+    kyubi::Config::Visit([](kyubi::ConfigVarBase::ptr var){
+        KYUBI_LOG_INFO(g_logger) <<" name=";
+    })
     return 0;
 }

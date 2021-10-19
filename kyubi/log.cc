@@ -217,7 +217,12 @@ bool FileAppedner::reopen()
 void FileAppedner::log(std::shared_ptr<Logger> logger,LogLevel::Level level ,LogEvent::ptr event)
 {
     if (level >= m_level) {
-         MutexType::Lock lock(m_mutex);
+        uint64_t now = time(0);
+        if (now != m_lastTime) {
+            reopen();
+            m_lastTime = now;
+        }
+        MutexType::Lock lock(m_mutex);
         m_filestream<<  m_formatter->format(logger,level,event);
     }
 }
@@ -664,7 +669,7 @@ public:
 
     struct LogIniter {
         LogIniter() {
-            g_log_defines->addListener(0xF1E231,[](const std::set<LogDefine>& old_value,
+            g_log_defines->addListener([](const std::set<LogDefine>& old_value,
                     const std::set<LogDefine>& new_value){
                 //新增
                 KYUBI_LOG_INFO(KYUBI_LOG_ROOT()) << "on_logger_conf_changed";
