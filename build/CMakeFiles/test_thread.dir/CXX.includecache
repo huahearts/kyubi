@@ -73,6 +73,8 @@ util.h
 .././kyubi/util.h
 singleton.h
 .././kyubi/singleton.h
+thread.h
+.././kyubi/thread.h
 
 .././kyubi/singleton.h
 

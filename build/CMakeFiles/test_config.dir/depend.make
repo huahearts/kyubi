@@ -4,6 +4,7 @@
 CMakeFiles/test_config.dir/tests/test_config.cc.o: .././kyubi/config.h
 CMakeFiles/test_config.dir/tests/test_config.cc.o: .././kyubi/log.h
 CMakeFiles/test_config.dir/tests/test_config.cc.o: .././kyubi/singleton.h
+CMakeFiles/test_config.dir/tests/test_config.cc.o: .././kyubi/thread.h
 CMakeFiles/test_config.dir/tests/test_config.cc.o: .././kyubi/util.h
 CMakeFiles/test_config.dir/tests/test_config.cc.o: ../tests/test_config.cc
 
