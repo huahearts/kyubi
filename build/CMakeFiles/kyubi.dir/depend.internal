@@ -22,5 +22,8 @@ CMakeFiles/kyubi.dir/kyubi/thread.cc.o
  /root/workspace/kyubi/kyubi/thread.h
  /root/workspace/kyubi/kyubi/util.h
 CMakeFiles/kyubi.dir/kyubi/util.cc.o
+ /root/workspace/kyubi/kyubi/log.h
+ /root/workspace/kyubi/kyubi/singleton.h
+ /root/workspace/kyubi/kyubi/thread.h
  /root/workspace/kyubi/kyubi/util.cc
  /root/workspace/kyubi/kyubi/util.h

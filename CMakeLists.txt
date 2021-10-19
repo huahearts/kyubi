@@ -44,6 +44,11 @@ add_dependencies(test_thread kyubi)
 force_redefine_file_macro_for_sources(test_thread) #__FILE__
 target_link_libraries(test_thread kyubi ${YAMLCPP} pthread)
 
+add_executable(test_util tests/test_util.cc)
+add_dependencies(test_util kyubi)
+force_redefine_file_macro_for_sources(test_util) #__FILE__
+target_link_libraries(test_util kyubi ${YAMLCPP} pthread)
+
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
   

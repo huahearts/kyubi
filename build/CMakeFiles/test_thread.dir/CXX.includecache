@@ -37,6 +37,8 @@ log.h
 .././kyubi/log.h
 
 .././kyubi/kyubi.h
+kyubi/macro.h
+.././kyubi/kyubi/macro.h
 kyubi/config.h
 .././kyubi/kyubi/config.h
 kyubi/log.h
@@ -78,6 +80,14 @@ singleton.h
 thread.h
 .././kyubi/thread.h
 
+.././kyubi/macro.h
+string.h
+-
+assert.h
+-
+util.h
+.././kyubi/util.h
+
 .././kyubi/singleton.h
 
 .././kyubi/thread.h
@@ -108,6 +118,10 @@ stdio.h
 unistd.h
 -
 stdint.h
+-
+string
+-
+vector
 -
 
 /root/workspace/kyubi/tests/test_thread.cc

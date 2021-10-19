@@ -5,6 +5,7 @@ CMakeFiles/test_thread.dir/tests/test_thread.cc.o
  .././kyubi/config.h
  .././kyubi/kyubi.h
  .././kyubi/log.h
+ .././kyubi/macro.h
  .././kyubi/singleton.h
  .././kyubi/thread.h
  .././kyubi/util.h

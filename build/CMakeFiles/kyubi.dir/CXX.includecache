@@ -84,6 +84,14 @@ thread.h
 
 /root/workspace/kyubi/kyubi/singleton.h
 
+/root/workspace/kyubi/kyubi/thread.cc
+thread.h
+/root/workspace/kyubi/kyubi/thread.h
+log.h
+/root/workspace/kyubi/kyubi/log.h
+util.h
+/root/workspace/kyubi/kyubi/util.h
+
 /root/workspace/kyubi/kyubi/thread.h
 thread
 -
@@ -100,6 +108,16 @@ semaphore.h
 atomic
 -
 
+/root/workspace/kyubi/kyubi/util.cc
+util.h
+/root/workspace/kyubi/kyubi/util.h
+execinfo.h
+-
+log.h
+/root/workspace/kyubi/kyubi/log.h
+unistd.h
+-
+
 /root/workspace/kyubi/kyubi/util.h
 pthread.h
 -
@@ -112,5 +130,9 @@ stdio.h
 unistd.h
 -
 stdint.h
+-
+string
+-
+vector
 -
 

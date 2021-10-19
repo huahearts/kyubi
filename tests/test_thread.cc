@@ -54,6 +54,6 @@ int main(int argc, char** argv) {
 
     kyubi::Config::Visit([](kyubi::ConfigVarBase::ptr var){
         KYUBI_LOG_INFO(g_logger) <<" name=";
-    })
+    });
     return 0;
 }

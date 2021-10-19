@@ -97,6 +97,10 @@ unistd.h
 -
 stdint.h
 -
+string
+-
+vector
+-
 
 /root/workspace/kyubi/tests/test_config.cc
 kyubi/config.h
