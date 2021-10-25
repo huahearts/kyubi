@@ -7,4 +7,5 @@
 #include "kyubi/singleton.h"
 #include "kyubi/thread.h"
 #include "kyubi/util.h"
+#include "kyubi/fiber.h"
 #endif

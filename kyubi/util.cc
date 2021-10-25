@@ -2,6 +2,7 @@
 #include<execinfo.h>
 #include "log.h"
 #include <unistd.h>
+#include "fiber.h"
 namespace kyubi{
 
 kyubi::Logger::ptr g_logger = KYUBI_LOG_NAME("system");
@@ -11,7 +12,8 @@ pid_t GetThreadId() {
 }
 
 uint32_t GetFiberId() {
-    return 0;
+   
+    return  kyubi::Fiber::GetThis()->getId();
 }
 
 void Backtrace(std::vector<std::string>& bt,int size,int skip)

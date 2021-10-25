@@ -36,6 +36,16 @@ thread.h
 log.h
 .././kyubi/log.h
 
+.././kyubi/fiber.h
+memory
+-
+ucontext.h
+-
+functional
+-
+thread.h
+.././kyubi/thread.h
+
 .././kyubi/kyubi.h
 kyubi/macro.h
 .././kyubi/kyubi/macro.h
@@ -49,6 +59,8 @@ kyubi/thread.h
 .././kyubi/kyubi/thread.h
 kyubi/util.h
 .././kyubi/kyubi/util.h
+kyubi/fiber.h
+.././kyubi/kyubi/fiber.h
 
 .././kyubi/log.h
 string

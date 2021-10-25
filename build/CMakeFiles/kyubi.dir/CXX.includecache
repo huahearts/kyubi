@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/root/workspace/kyubi/kyubi/config.cc
-config.h
-/root/workspace/kyubi/kyubi/config.h
-
 /root/workspace/kyubi/kyubi/config.h
 memory
 -
@@ -84,14 +80,6 @@ thread.h
 
 /root/workspace/kyubi/kyubi/singleton.h
 
-/root/workspace/kyubi/kyubi/thread.cc
-thread.h
-/root/workspace/kyubi/kyubi/thread.h
-log.h
-/root/workspace/kyubi/kyubi/log.h
-util.h
-/root/workspace/kyubi/kyubi/util.h
-
 /root/workspace/kyubi/kyubi/thread.h
 thread
 -
@@ -106,16 +94,6 @@ pthread.h
 semaphore.h
 -
 atomic
--
-
-/root/workspace/kyubi/kyubi/util.cc
-util.h
-/root/workspace/kyubi/kyubi/util.h
-execinfo.h
--
-log.h
-/root/workspace/kyubi/kyubi/log.h
-unistd.h
 -
 
 /root/workspace/kyubi/kyubi/util.h

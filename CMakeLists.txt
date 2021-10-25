@@ -19,6 +19,7 @@ set(LIB_SRC
     kyubi/util.cc
     kyubi/config.cc
     kyubi/thread.cc
+    kyubi/fiber.cc
     )
 
 add_library(kyubi SHARED ${LIB_SRC})
@@ -48,6 +49,11 @@ add_executable(test_util tests/test_util.cc)
 add_dependencies(test_util kyubi)
 force_redefine_file_macro_for_sources(test_util) #__FILE__
 target_link_libraries(test_util kyubi ${YAMLCPP} pthread)
+
+add_executable(test_fiber tests/test_fiber.cc)
+add_dependencies(test_fiber kyubi)
+force_redefine_file_macro_for_sources(test_fiber) #__FILE__
+target_link_libraries(test_fiber kyubi ${YAMLCPP} pthread)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

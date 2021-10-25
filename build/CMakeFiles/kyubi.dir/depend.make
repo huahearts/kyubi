@@ -8,6 +8,15 @@ CMakeFiles/kyubi.dir/kyubi/config.cc.o: ../kyubi/singleton.h
 CMakeFiles/kyubi.dir/kyubi/config.cc.o: ../kyubi/thread.h
 CMakeFiles/kyubi.dir/kyubi/config.cc.o: ../kyubi/util.h
 
+CMakeFiles/kyubi.dir/kyubi/fiber.cc.o: ../kyubi/config.h
+CMakeFiles/kyubi.dir/kyubi/fiber.cc.o: ../kyubi/fiber.cc
+CMakeFiles/kyubi.dir/kyubi/fiber.cc.o: ../kyubi/fiber.h
+CMakeFiles/kyubi.dir/kyubi/fiber.cc.o: ../kyubi/log.h
+CMakeFiles/kyubi.dir/kyubi/fiber.cc.o: ../kyubi/macro.h
+CMakeFiles/kyubi.dir/kyubi/fiber.cc.o: ../kyubi/singleton.h
+CMakeFiles/kyubi.dir/kyubi/fiber.cc.o: ../kyubi/thread.h
+CMakeFiles/kyubi.dir/kyubi/fiber.cc.o: ../kyubi/util.h
+
 CMakeFiles/kyubi.dir/kyubi/log.cc.o: ../kyubi/config.h
 CMakeFiles/kyubi.dir/kyubi/log.cc.o: ../kyubi/log.cc
 CMakeFiles/kyubi.dir/kyubi/log.cc.o: ../kyubi/log.h
@@ -21,6 +30,7 @@ CMakeFiles/kyubi.dir/kyubi/thread.cc.o: ../kyubi/thread.cc
 CMakeFiles/kyubi.dir/kyubi/thread.cc.o: ../kyubi/thread.h
 CMakeFiles/kyubi.dir/kyubi/thread.cc.o: ../kyubi/util.h
 
+CMakeFiles/kyubi.dir/kyubi/util.cc.o: ../kyubi/fiber.h
 CMakeFiles/kyubi.dir/kyubi/util.cc.o: ../kyubi/log.h
 CMakeFiles/kyubi.dir/kyubi/util.cc.o: ../kyubi/singleton.h
 CMakeFiles/kyubi.dir/kyubi/util.cc.o: ../kyubi/thread.h

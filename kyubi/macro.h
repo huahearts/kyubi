@@ -6,18 +6,18 @@
 
 #define KYUBI_ASSERT(x) \
     if(!(x)) {\
-        KYUBI_LOG_ERROR(KYUBNI_LOG_ROOT()) << "ASSERTION:" #x\
+        KYUBI_LOG_ERROR(KYUBI_LOG_ROOT()) << "ASSERTION:" #x\
             << "\nbacktrace:\n"\
-            << kyubi::BacktraceToSTring(100,2,"     ");\
+            << kyubi::BacktraceToString(100,2,"     ");\
         assert(x);\
     }
 
 #define KYUBI_ASSERT2(x,w) \
     if(!(x)) {\
-        KYUBI_LOG_ERROR(KYUBNI_LOG_ROOT()) << "ASSERTION:" #x\
+        KYUBI_LOG_ERROR(KYUBI_LOG_ROOT()) << "ASSERTION:" #x\
             << "\n" << w\
             << "\nbacktrace:\n"\
-            << kyubi::BacktraceToSTring(100,2,"     ");\
+            << kyubi::BacktraceToString(100,2,"     ");\
         assert(x);\
     }
 #endif

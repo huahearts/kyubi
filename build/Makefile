@@ -114,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_fiber
+
+# Build rule for target.
+test_fiber: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_fiber
+.PHONY : test_fiber
+
+# fast build rule for target.
+test_fiber/fast:
+	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/build
+.PHONY : test_fiber/fast
+
+#=============================================================================
 # Target rules for targets named test_util
 
 # Build rule for target.
@@ -191,6 +204,33 @@ kyubi/config.s: kyubi/config.cc.s
 kyubi/config.cc.s:
 	$(MAKE) -f CMakeFiles/kyubi.dir/build.make CMakeFiles/kyubi.dir/kyubi/config.cc.s
 .PHONY : kyubi/config.cc.s
+
+kyubi/fiber.o: kyubi/fiber.cc.o
+
+.PHONY : kyubi/fiber.o
+
+# target to build an object file
+kyubi/fiber.cc.o:
+	$(MAKE) -f CMakeFiles/kyubi.dir/build.make CMakeFiles/kyubi.dir/kyubi/fiber.cc.o
+.PHONY : kyubi/fiber.cc.o
+
+kyubi/fiber.i: kyubi/fiber.cc.i
+
+.PHONY : kyubi/fiber.i
+
+# target to preprocess a source file
+kyubi/fiber.cc.i:
+	$(MAKE) -f CMakeFiles/kyubi.dir/build.make CMakeFiles/kyubi.dir/kyubi/fiber.cc.i
+.PHONY : kyubi/fiber.cc.i
+
+kyubi/fiber.s: kyubi/fiber.cc.s
+
+.PHONY : kyubi/fiber.s
+
+# target to generate assembly for a file
+kyubi/fiber.cc.s:
+	$(MAKE) -f CMakeFiles/kyubi.dir/build.make CMakeFiles/kyubi.dir/kyubi/fiber.cc.s
+.PHONY : kyubi/fiber.cc.s
 
 kyubi/log.o: kyubi/log.cc.o
 
@@ -300,6 +340,33 @@ tests/test_config.cc.s:
 	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.s
 .PHONY : tests/test_config.cc.s
 
+tests/test_fiber.o: tests/test_fiber.cc.o
+
+.PHONY : tests/test_fiber.o
+
+# target to build an object file
+tests/test_fiber.cc.o:
+	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o
+.PHONY : tests/test_fiber.cc.o
+
+tests/test_fiber.i: tests/test_fiber.cc.i
+
+.PHONY : tests/test_fiber.i
+
+# target to preprocess a source file
+tests/test_fiber.cc.i:
+	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cc.i
+.PHONY : tests/test_fiber.cc.i
+
+tests/test_fiber.s: tests/test_fiber.cc.s
+
+.PHONY : tests/test_fiber.s
+
+# target to generate assembly for a file
+tests/test_fiber.cc.s:
+	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cc.s
+.PHONY : tests/test_fiber.cc.s
+
 tests/test_thread.o: tests/test_thread.cc.o
 
 .PHONY : tests/test_thread.o
@@ -362,6 +429,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... test_fiber"
 	@echo "... test_util"
 	@echo "... test_thread"
 	@echo "... test_config"
@@ -369,6 +437,9 @@ help:
 	@echo "... kyubi/config.o"
 	@echo "... kyubi/config.i"
 	@echo "... kyubi/config.s"
+	@echo "... kyubi/fiber.o"
+	@echo "... kyubi/fiber.i"
+	@echo "... kyubi/fiber.s"
 	@echo "... kyubi/log.o"
 	@echo "... kyubi/log.i"
 	@echo "... kyubi/log.s"
@@ -381,6 +452,9 @@ help:
 	@echo "... tests/test_config.o"
 	@echo "... tests/test_config.i"
 	@echo "... tests/test_config.s"
+	@echo "... tests/test_fiber.o"
+	@echo "... tests/test_fiber.i"
+	@echo "... tests/test_fiber.s"
 	@echo "... tests/test_thread.o"
 	@echo "... tests/test_thread.i"
 	@echo "... tests/test_thread.s"

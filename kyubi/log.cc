@@ -86,7 +86,7 @@ Logger::Logger(const std::string& name)
 :m_name(name)
 ,m_level(LogLevel::DEBUG)
 {
-   m_formatter.reset(new LogFormatter("%d{%Y-%m-%d %H:%M:%S}%T%t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"));
+   m_formatter.reset(new LogFormatter("%d{%Y-%m-%d %H:%M:%S}%T%t%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"));
 }
 
 void Logger::log(LogLevel::Level level,LogEvent::ptr event)
@@ -392,7 +392,7 @@ class StringFormatItem : public LogFormatter::FormatItem{
 public:
     StringFormatItem(const std::string& str):m_string(str){}
     void format(std::ostream& os,Logger::ptr logger, LogLevel::Level level ,LogEvent::ptr event) override {
-        os << event->getFiberId();
+        os << m_string;
     }
 private:
     std::string m_string;
@@ -498,7 +498,7 @@ void LogFormatter::init() {
            m_items.push_back(FormatItem::ptr(new StringFormatItem(std::get<0>(i))));
         } else {
             auto it = s_format_items.find(std::get<0>(i));
-            if( it == s_format_items.end()) {
+            if(it == s_format_items.end()) {
                 m_items.push_back(FormatItem::ptr(new StringFormatItem("<<error_format %" + std::get<0>(i) + ">>")));
                 m_error = true;
             } else {

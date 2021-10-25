@@ -3,6 +3,7 @@
 
 CMakeFiles/test_thread.dir/tests/test_thread.cc.o
  .././kyubi/config.h
+ .././kyubi/fiber.h
  .././kyubi/kyubi.h
  .././kyubi/log.h
  .././kyubi/macro.h
