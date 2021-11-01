@@ -243,7 +243,7 @@ public:
     void join();
     static Thread* GetThis();
     static const std::string& GetName();
-    void SetName(const std::string& name);
+    static void SetName(const std::string& name);
     static void* run(void* arg);
 private:
 /*

@@ -70,6 +70,7 @@ Thread::~Thread() {
 void* Thread::run(void* args) {
     Thread* thread = (Thread*)args;
     t_thread = thread;
+    t_thread_name = thread->m_name;
     thread->m_id = kyubi::GetThreadId();
     pthread_setname_np(pthread_self(),thread->m_name.substr(0,15).c_str());
     std::function<void()> cb;

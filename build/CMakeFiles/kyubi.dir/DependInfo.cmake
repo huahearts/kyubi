@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/root/workspace/kyubi/kyubi/config.cc" "/root/workspace/kyubi/build/CMakeFiles/kyubi.dir/kyubi/config.cc.o"
   "/root/workspace/kyubi/kyubi/fiber.cc" "/root/workspace/kyubi/build/CMakeFiles/kyubi.dir/kyubi/fiber.cc.o"
   "/root/workspace/kyubi/kyubi/log.cc" "/root/workspace/kyubi/build/CMakeFiles/kyubi.dir/kyubi/log.cc.o"
+  "/root/workspace/kyubi/kyubi/scheduler.cc" "/root/workspace/kyubi/build/CMakeFiles/kyubi.dir/kyubi/scheduler.cc.o"
   "/root/workspace/kyubi/kyubi/thread.cc" "/root/workspace/kyubi/build/CMakeFiles/kyubi.dir/kyubi/thread.cc.o"
   "/root/workspace/kyubi/kyubi/util.cc" "/root/workspace/kyubi/build/CMakeFiles/kyubi.dir/kyubi/util.cc.o"
   )

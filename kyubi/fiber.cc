@@ -2,6 +2,7 @@
 #include "config.h"
 #include "macro.h"
 #include "log.h"
+#include "scheduler.h"
 #include <atomic>
 namespace kyubi{
 static std::atomic<uint64_t> s_fiber_id{0};
@@ -44,7 +45,7 @@ Fiber::Fiber()
 
     ++s_fiber_count;
 }
-Fiber::Fiber(std::function<void()> cb,size_t stacksize)
+Fiber::Fiber(std::function<void()> cb,size_t stacksize,bool use_caller)
     :m_id(++s_fiber_id)
     ,m_cb(cb)
 {
@@ -59,8 +60,11 @@ Fiber::Fiber(std::function<void()> cb,size_t stacksize)
     m_ctx.uc_link = nullptr;
     m_ctx.uc_stack.ss_sp = m_stack;
     m_ctx.uc_stack.ss_size = m_stacksize;
-
-    makecontext(&m_ctx,&Fiber::MainFunc,0); 
+    if (use_caller) {
+        makecontext(&m_ctx,&Fiber::CallerMainFunc,0); 
+    } else {
+        makecontext(&m_ctx,&Fiber::MainFunc,0); 
+    }
 }
 Fiber::~Fiber()
 {
@@ -100,15 +104,29 @@ void Fiber::swapIn()
 {
     SetThis(this);
     KYUBI_ASSERT(m_state != EXEC);
-    if(swapcontext(&t_threadFiber->m_ctx,&m_ctx)){
+    if(swapcontext(&Scheduler::GetMainFiber()->m_ctx,&m_ctx)){
         KYUBI_ASSERT2(false,"swapcontext");
     }
 }
 //切换到后台执行
 void Fiber::swapOut()
 {
+    SetThis(Scheduler::GetMainFiber());
+    if(swapcontext(&m_ctx, &Scheduler::GetMainFiber()->m_ctx)) {
+        KYUBI_ASSERT2(false, "swapcontext");
+    }
+}
+
+void Fiber::call() {
+    m_state = EXEC;
+   if(swapcontext(&t_threadFiber->m_ctx, &m_ctx)) {
+       KYUBI_ASSERT2(false,"swapcontext");
+   }
+}
+
+void Fiber::back() {
     SetThis(t_threadFiber.get());
-    if(swapcontext(&m_ctx, &t_threadFiber->m_ctx)) {
+    if(swapcontext(&m_ctx,&t_threadFiber->m_ctx)) {
         KYUBI_ASSERT2(false,"swapcontext");
     }
 }
@@ -164,5 +182,34 @@ void Fiber::MainFunc(){
             << std::endl
             << kyubi::BacktraceToString();
     }
+    auto raw_ptr = cur.get();
+    cur.reset();
+    raw_ptr->swapOut();
+}
+
+void Fiber::CallerMainFunc() {
+    Fiber::ptr cur = GetThis();
+    KYUBI_ASSERT(cur);
+    try{
+        cur->m_cb();
+        cur->m_cb = nullptr;
+        cur->m_state = TERM;
+    } catch (std::exception& ex) {
+        cur->m_state = EXCEPT;
+        KYUBI_LOG_ERROR(g_logger) << "Fiber Except: " << ex.what()
+            << " fiber_id=" << cur->getId()
+            << std::endl
+            << kyubi::BacktraceToString();
+    } catch (...) {
+        cur->m_state = EXCEPT;
+        KYUBI_LOG_ERROR(g_logger) << "Fiber Except"
+            << " fiber_id=" << cur->getId()
+            << std::endl
+            << kyubi::BacktraceToString();
+    }
+    auto raw_ptr = cur.get();
+    cur.reset();
+    raw_ptr->back();
+    raw_ptr->swapOut();
 }
 }

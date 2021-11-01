@@ -18,7 +18,7 @@
 	if(logger->getLevel() <= level) \
 		kyubi::LogEventWrap(kyubi::LogEvent::ptr(new kyubi::LogEvent(logger,level, \
 			__FILE__,__LINE__,0,kyubi::GetThreadId(),\
-		kyubi::GetFiberId(),time(0)))).getSS()
+		kyubi::GetFiberId(),time(0),kyubi::Thread::GetName()))).getSS()
 
 #define KYUBI_LOG_DEBUG(logger) KYUBI_LOG_LEVEL(logger,kyubi::LogLevel::DEBUG)
 #define KYUBI_LOG_INFO(logger) KYUBI_LOG_LEVEL(logger,kyubi::LogLevel::INFO)
@@ -30,7 +30,7 @@
 	if(logger->getLevel() <= level) \
 		kyubi::LogEventWrap(kyubi::LoEvent::ptr(new kyubi::LogEvent(logger,level \
 			__FILE__,__LINE__,0,kyubi::GetThreadId(),\
-			kyubi::GetFiberId(),time(0)))).getEvent()->fotmat(fmt,__VA_ARGS__)
+			kyubi::GetFiberId(),time(0),kyubi::Thread::GetName()))).getEvent()->fotmat(fmt,__VA_ARGS__)
 
 #define KYUBI_LOG_FMT_DEBUG(logger,fmt,...) KYUBI_LOG_FMT_LEVEL(logger,kyubi::LogLevel::DEBUG,fmt,__VA_ARGS__)
 #define KYUBI_LOG_FMT_INFO(logger,fmt,...) KYUBI_LOG_FMT_LEVEL(logger,kyubi::LogLevel::INFO,fmt,__VA_ARGS__)
@@ -68,7 +68,7 @@ class LogEvent{
 public:
 	typedef std::shared_ptr<LogEvent> ptr;
 	LogEvent(std::shared_ptr<Logger> logge,LogLevel::Level level,const char* file,int32_t m_line,uint32_t elapse,
-		uint32_t thread_id,uint32_t fiber_id,uint64_t time);
+		uint32_t thread_id,uint32_t fiber_id,uint64_t time,const std::string& thread_name);
 		~LogEvent();
 	const char* getFile() const { return m_file; }
 	int32_t getLine() const { return m_line; }
@@ -76,8 +76,10 @@ public:
 	uint32_t getThreadId() const { return m_threadId; }
 	uint32_t getFiberId() const { return m_fiberId; }
 	uint32_t getTime() const { return m_time; }
+	std::string getThreadName() const { return m_threadName; }
 	std::string getContent() const { return m_ss.str();}
 	std::shared_ptr<Logger> getLogger() { return m_logger; }
+
 	LogLevel::Level getLevel() { return m_level; }
 	std::stringstream& getSS() { return m_ss; }
 	void format(const char* fmt,...);
@@ -92,6 +94,7 @@ private:
 	std::stringstream m_ss;
 	std::shared_ptr<Logger> m_logger;
 	LogLevel::Level m_level;
+	std::string m_threadName;
 };
 
 class LogEventWrap{

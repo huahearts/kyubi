@@ -6,6 +6,7 @@ CMakeFiles/test_util.dir/tests/test_util.cc.o: .././kyubi/fiber.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: .././kyubi/kyubi.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: .././kyubi/log.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: .././kyubi/macro.h
+CMakeFiles/test_util.dir/tests/test_util.cc.o: .././kyubi/scheduler.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: .././kyubi/singleton.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: .././kyubi/thread.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: .././kyubi/util.h

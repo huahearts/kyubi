@@ -6,6 +6,7 @@
 #include "thread.h"
 namespace kyubi {
 class Fiber: public std::enable_shared_from_this<Fiber>{
+    friend class Scheduler;
 public:
     typedef std::shared_ptr<Fiber> ptr;
     enum State {
@@ -20,7 +21,7 @@ public:
 private:
     Fiber();
 public:
-    Fiber(std::function<void()> cb,size_t stacksize = 0);
+    Fiber(std::function<void()> cb,size_t stacksize = 0,bool use_caller = false);
     ~Fiber();
     //重置协程函数，并重置状态
     void reset(std::function<void()> cb);
@@ -28,6 +29,11 @@ public:
     void swapIn();
     //切换到后台执行
     void swapOut();
+    void call();
+    void back();
+    void setState(State state) {
+        m_state = state;
+    }
 
     uint64_t getId() const { return m_id; }
 public:
@@ -43,7 +49,8 @@ public:
     static uint64_t TotalFibers();
 
     static void MainFunc();
-
+    static void CallerMainFunc();
+    State getState() const { return m_state;}
     static uint64_t GetFiberId();
 private:
     uint64_t m_id = 0;

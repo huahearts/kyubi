@@ -14,6 +14,7 @@ CMakeFiles/kyubi.dir/kyubi/fiber.cc.o
  /root/workspace/kyubi/kyubi/fiber.h
  /root/workspace/kyubi/kyubi/log.h
  /root/workspace/kyubi/kyubi/macro.h
+ /root/workspace/kyubi/kyubi/scheduler.h
  /root/workspace/kyubi/kyubi/singleton.h
  /root/workspace/kyubi/kyubi/thread.h
  /root/workspace/kyubi/kyubi/util.h
@@ -21,6 +22,15 @@ CMakeFiles/kyubi.dir/kyubi/log.cc.o
  /root/workspace/kyubi/kyubi/config.h
  /root/workspace/kyubi/kyubi/log.cc
  /root/workspace/kyubi/kyubi/log.h
+ /root/workspace/kyubi/kyubi/singleton.h
+ /root/workspace/kyubi/kyubi/thread.h
+ /root/workspace/kyubi/kyubi/util.h
+CMakeFiles/kyubi.dir/kyubi/scheduler.cc.o
+ /root/workspace/kyubi/kyubi/fiber.h
+ /root/workspace/kyubi/kyubi/log.h
+ /root/workspace/kyubi/kyubi/macro.h
+ /root/workspace/kyubi/kyubi/scheduler.cc
+ /root/workspace/kyubi/kyubi/scheduler.h
  /root/workspace/kyubi/kyubi/singleton.h
  /root/workspace/kyubi/kyubi/thread.h
  /root/workspace/kyubi/kyubi/util.h

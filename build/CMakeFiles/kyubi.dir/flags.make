@@ -18,3 +18,5 @@ CXX_INCLUDES = -I/root/workspace/kyubi/. -I/apps/kyubi/include
 
 # Custom defines: CMakeFiles/kyubi.dir/kyubi/fiber.cc.o_DEFINES = __FILE__="kyubi/fiber.cc"
 
+# Custom defines: CMakeFiles/kyubi.dir/kyubi/scheduler.cc.o_DEFINES = __FILE__="kyubi/scheduler.cc"
+

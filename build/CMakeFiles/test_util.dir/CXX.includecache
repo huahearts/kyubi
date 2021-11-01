@@ -61,6 +61,8 @@ kyubi/util.h
 .././kyubi/kyubi/util.h
 kyubi/fiber.h
 .././kyubi/kyubi/fiber.h
+kyubi/scheduler.h
+.././kyubi/kyubi/scheduler.h
 
 .././kyubi/log.h
 string
@@ -99,6 +101,20 @@ assert.h
 -
 util.h
 .././kyubi/util.h
+
+.././kyubi/scheduler.h
+memory
+-
+vector
+-
+list
+-
+map
+-
+fiber.h
+.././kyubi/fiber.h
+thread.h
+.././kyubi/thread.h
 
 .././kyubi/singleton.h
 

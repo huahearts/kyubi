@@ -8,4 +8,5 @@
 #include "kyubi/thread.h"
 #include "kyubi/util.h"
 #include "kyubi/fiber.h"
+#include "kyubi/scheduler.h"
 #endif
